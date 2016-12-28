@@ -1,0 +1,73 @@
+name: Items Contactos
+description: Muestra diferentes items de contacto (Ícono +  Texto).
+type: particle
+icon: fa fa-check-square-o
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Habilitar
+      description: Habilitar esta partícula.
+      default: true
+
+    css.class:
+      type: input.selectize
+      label: Clases CSS
+      description: Clases CSS para esta partícula.
+      default:
+
+    display:
+      type: input.radios
+      label: Orientación
+      description: ¿Cómo deseas mostrar los items?
+      default: horizontal
+      options:
+        horizontal: Horizontal
+        vertical: Vertical
+
+    pre.text:
+      type: textarea.textarea
+      label: Texto previo
+      description: texto a mostrar antes de la lista. 
+ 
+    items:
+      type: collection.list
+      array: true
+      label: Items de contacto
+      description: Crear tus items de contacto.
+      value: name
+      ajax: true
+
+      fields:
+
+        .icon:
+          type: input.icon
+          label: Icono
+
+        .line1:
+          type: input.text
+          label: Línea 1
+
+        .line2:
+          type: input.text
+          label: Línea 2
+
+        .link:
+          type: input.text
+          label: Enlace
+
+        .target:
+          type: select.select
+          label: Target
+          description: Define si el enlace se abrirá en una nueva ventana. 
+          placeholder: 'Seleccionar'
+          default: _parent
+          options:
+            _parent: Misma ventana
+            _blank: Nueva ventana
+
+        .class:
+          type: input.selectize
+          label: Clases CSS
+          description: Clases CSS el item.

@@ -1,0 +1,33 @@
+/*---------------------------
+ESTILOS PARTICULA CONTACTOS
+---------------------------*/
+.g-items-contactos{
+padding: 0;
+margin: 0;
+}
+.g-items-contactos .g-items-contactos-opcion {
+display: inline-flex;
+align-items: center;
+margin: 0 1rem 0 0;
+}
+.g-items-contactos .g-items-contactos-opcion:last-child {
+margin-right: 0;
+}
+.g-items-contactos .g-items-contactos-opcion a{
+display: flex;
+align-items: center;
+}
+.g-items-contactos .g-items-contactos-opcion .g-items-contactos-icono {
+color: $accent-color-1;
+font-size: 1.2rem;
+margin-right: .4rem;
+}
+.g-items-contactos .g-items-contactos-opcion .g-items-contactos-valor {
+color: $base-text-color;
+text-align: left;
+}
+/*Contacts in Vertical*/
+.g-items-contactos.contactos-en-bloques .g-items-contactos-opcion {
+display: flex;
+margin: 0 0 .2rem;
+}
