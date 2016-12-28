@@ -1,9 +1,9 @@
-# Partícula "Contact Items"
-Partícula para Gantry 5 que te permite incluir un ícono de Font Awesome acompañado de un texto (pudiendo ser tambíen un enlace), muy utiles para secciones donde necesitemos insertar Teléfonos, emails, direccións, etc.
+# Partícula "Items-contactos"
+Partícula para Gantry 5 que te permite incluir un ícono de Font Awesome acompañado de un texto (pudiendo ser el texto ser también un enlace), muy util para secciones donde necesitemos insertar teléfonos,emails,direccións, etc.
 
 Instalación
 -----------
-No hemos incluido un instalador ya que deseamos que esta partícula pueda ser usando, tanto en Joomla como en Wordpress. 
+No hemos incluido un instalador ya que deseamos que esta partícula pueda ser usada tanto en Joomla como en Wordpress. 
 El modo de instalación es muy sencillo:
 
 + Crear la carpeta "particles" dentro de tu carpeta "custom" en tu plantilla Gantry. Ejem: g5_hydrogen/custom/particles
