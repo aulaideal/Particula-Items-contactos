@@ -2,9 +2,9 @@
 
 
 {% block particle %}
-     {% if particle.pre.text %} <p class="g-contacts-pre-text">{{ particle.pre.text|raw }} </p> {% endif %}
+     {% if particle.pretexto %} <p class="g-items-contactos-pretexto">{{ particle.pretexto|raw }} </p> {% endif %}
 
-    <ul class="g-items-contactos{% if particle.css.class %}{{ particle.css.class|e }}{% endif %}{% if particle.display=="vertical" %} contactos-en-bloques{% endif %}">
+    <ul class="g-items-contactos{% if particle.css.class %} {{ particle.css.class|e }}{% endif %}{% if particle.display=="vertical" %} contactos-en-bloques{% endif %}">
         {% for item in particle.items %}
         	{% set attr_extra_item = '' %}
 			{% for extra in item.extra %}
@@ -12,9 +12,18 @@
 			{% endfor %}
         	<li class="g-items-contactos-opcion{% if item.class %} {{ item.class|e }}{% endif %}" {% if item.extra %}{{ attr_extra_item|raw }}{% endif %}>
                 {% if item.link %}<a target="{{ item.target|default('_parent')|e }}" href="{{ item.link|e }}">{% endif %}
-				{% if item.icon %}<i class="g-items-contactos-icono {{ item.icon|e }}"></i>{% endif %}
+				{% if item.icon %}<i class="g-items-contactos-icono {{ item.icon|e }}"                
+                    {%- if particle.tamanoicono or particle.coloricono -%} style="
+                    {%- if particle.tamanoicono -%} font-size:{{particle.tamanoicono}};{% endif %}
+                    {%- if particle.coloricono -%} color:{{particle.coloricono}};{% endif %}
+                    "{%- endif -%}></i>
+                    {% endif %}
 				{% if item.line1 or item.line2  %}
-                <div class="g-items-contactos-valor">
+                <div class="g-items-contactos-valor" 
+                {%- if particle.tamanotexto or particle.colortexto -%} style="
+                {%- if particle.tamanotexto -%} font-size:{{particle.tamanotexto}};{% endif %}
+                {%- if particle.colortexto -%} color:{{particle.colortexto}};{% endif %}
+                "{%- endif -%}>                
                 {% if item.line1 %} <div class="g-items-contactos-valor-linea1">{{ item.line1|raw }} </div> {% endif %}
                 {% if item.line2 %} <div class="g-items-contactos-valor-linea2">{{ item.line2|raw }} </div>  {% endif %}
                 </div>

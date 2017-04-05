@@ -26,10 +26,49 @@ form:
         horizontal: Horizontal
         vertical: Vertical
 
-    pre.text:
+    pretexto:
       type: textarea.textarea
       label: Texto previo
       description: texto a mostrar antes de la lista. 
+
+
+    separador01:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes del ícono</h4>'
+
+    tamanoicono:
+      type: input.text
+      label: Tamaño ícono
+      description: 'Tamaño del ícono que acompaña al texto'
+      placeholder: '1rem'
+    
+    coloricono:
+      type: input.colorpicker
+      label: Color del Ícono
+      placeholder: 'Color del Ícono'
+
+    separador02:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes del texto</h4>'
+
+    tamanotexto:
+      type: input.text
+      label: Tamaño texto
+      description: 'Tamaño del texto'
+      placeholder: '1rem'
+
+    colortexto:
+      type: input.colorpicker
+      label: Color del texto
+      placeholder: 'Color del texto'
+
+    separador03:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Número de Items</h4>'
+
  
     items:
       type: collection.list
