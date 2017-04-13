@@ -3,6 +3,10 @@ description: Muestra diferentes items de contacto (Ícono +  Texto).
 type: particle
 icon: fa fa-check-square-o
 
+configuration:
+  caching:
+    type: static
+
 form:
   fields:
     enabled:
@@ -43,6 +47,7 @@ form:
       description: 'Tamaño del ícono que acompaña al texto'
       placeholder: '1rem'
     
+
     coloricono:
       type: input.colorpicker
       label: Color del Ícono
