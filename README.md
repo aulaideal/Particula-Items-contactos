@@ -1,5 +1,6 @@
 # Partícula "Items-contactos"
 Partícula para Gantry 5 que te permite incluir un ícono de Font Awesome acompañado de un texto (pudiendo ser el texto ser también un enlace), muy util para secciones donde necesitemos insertar teléfonos,emails,direccións, etc.
+
 ![particula-items-contactos](https://user-images.githubusercontent.com/9434043/26898765-a76f6882-4b92-11e7-8d72-4f4566ebb6cb.png)
 
 
