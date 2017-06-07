@@ -14,6 +14,7 @@ El modo de instalación es muy sencillo:
 + Llame al archivo desde tu custom.scss colocando la siguiente linea al comienzo: 
 
   /*Estilos partícula "items-contactos */
+  
   @import "items-contactos";
 
 
