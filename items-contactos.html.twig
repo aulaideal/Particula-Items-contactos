@@ -1,31 +1,58 @@
 {% extends '@nucleus/partials/particle.html.twig' %}
 
+{% set attr_extrageneral = '' %}
+{% if particle.extrageneral %}
+    {% for attributes in particle.extrageneral %}
+    {% for key, value in attributes %}
+    {% set attr_extrageneral = attr_extrageneral ~ ' ' ~ key|e ~ '="' ~ value|e('html_attr') ~ '"' %}
+    {% endfor %}
+    {% endfor %}
+{% endif %}
 
 {% block particle %}
-     {% if particle.pretexto %} <p class="g-items-contactos-pretexto">{{ particle.pretexto|raw }} </p> {% endif %}
 
-    <ul class="g-items-contactos{% if particle.css.class %} {{ particle.css.class|e }}{% endif %}{% if particle.display=="vertical" %} contactos-en-bloques{% endif %}">
+    {%- if particle.titulo -%}
+        <{{ particle.etiquetatitulo }} {% if particle.clasecsstitulo %} class="{{ particle.clasecsstitulo }}" {% endif %}>{{ particle.titulo }}</{{ particle.etiquetatitulo }}> 
+    {%- endif -%}
+     {% if particle.pretexto %} <div class="g-items-contactos-pretexto">{{ particle.pretexto|raw }} </div> {% endif %}
+
+    <ul class="g-items-contactos{% if particle.clasecssgeneral %} {{ particle.clasecssgeneral|e }}{% endif %} {{ particle.orientacionitems|e }} {{ particle.alineacion|e }} {{ particle.alineacionicono|e }}" {% if particle.extrageneral %}{{ attr_extrageneral|raw }}{% endif %}>
         {% for item in particle.items %}
         	{% set attr_extra_item = '' %}
 			{% for extra in item.extra %}
 				{% set attr_extra_item = attr_extra_item ~ ' ' ~ extra|keys|first|e ~ '="' ~ extra|values|first|e('html_attr') ~ '"' %}
 			{% endfor %}
-        	<li class="g-items-contactos-opcion{% if item.class %} {{ item.class|e }}{% endif %}" {% if item.extra %}{{ attr_extra_item|raw }}{% endif %}>
+        	<li class="g-items-contactos-opcion{% if item.class %} {{ item.class|e }}{% endif %}" {% if item.extra %}{{ attr_extra_item|raw }} {% endif %}            
+            {%- if particle.separacionitems -%}
+                {%- if particle.orientacionitems=="g-item-dis-horizontal" -%}
+                style="margin-right:{{ particle.separacionitems|e }}"                
+                {%- else -%}
+                style="margin-bottom:{{ particle.separacionitems|e }}"
+                {%- endif -%}
+            {%- endif -%}>
+
                 {% if item.link %}<a target="{{ item.target|default('_parent')|e }}" href="{{ item.link|e }}">{% endif %}
 				{% if item.icon %}<i class="g-items-contactos-icono {{ item.icon|e }}"                
-                    {%- if particle.tamanoicono or particle.coloricono -%} style="
-                    {%- if particle.tamanoicono -%} font-size:{{particle.tamanoicono}};{% endif %}
-                    {%- if particle.coloricono -%} color:{{particle.coloricono}};{% endif %}
+                    {%- if particle.tamanoicono or particle.coloricono or particle.espaciadoicono -%} style="
+                        {%- if particle.tamanoicono -%} font-size:{{particle.tamanoicono}};{%- endif -%}
+                        {%- if particle.coloricono -%} color:{{particle.coloricono}};{%- endif -%}
+                        {%- if particle.alineacionicono=='g-item-ico-arri' -%}
+                         margin-bottom:{{particle.espaciadoicono}};
+                         {%- elseif particle.alineacionicono=='g-item-ico-izqu' -%}
+                         margin-right:{{particle.espaciadoicono}};
+                         {%- elseif particle.alineacionicono=='g-item-ico-abaj' -%}
+                         margin-top:{{particle.espaciadoicono}};
+                        {%- endif -%}
                     "{%- endif -%}></i>
-                    {% endif %}
-				{% if item.line1 or item.line2  %}
+                {% endif %}
+				{% if item.texto  %}
                 <div class="g-items-contactos-valor" 
                 {%- if particle.tamanotexto or particle.colortexto -%} style="
-                {%- if particle.tamanotexto -%} font-size:{{particle.tamanotexto}};{% endif %}
-                {%- if particle.colortexto -%} color:{{particle.colortexto}};{% endif %}
+                {%- if particle.tamanotexto -%} font-size:{{particle.tamanotexto}};{%- endif -%}
+                {%- if particle.colortexto -%} color:{{particle.colortexto}};{%- endif -%}
                 "{%- endif -%}>                
-                {% if item.line1 %} <div class="g-items-contactos-valor-linea1">{{ item.line1|raw }} </div> {% endif %}
-                {% if item.line2 %} <div class="g-items-contactos-valor-linea2">{{ item.line2|raw }} </div>  {% endif %}
+                {{ item.texto|raw }}
+
                 </div>
                 {% endif %}
                 {% if item.link %}</a>{% endif %}

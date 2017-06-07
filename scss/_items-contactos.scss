@@ -1,33 +1,83 @@
 /*---------------------------
-ESTILOS PARTICULA CONTACTOS
+ESTILOS PARTICULA ITEMS CONTACTOS
 ---------------------------*/
 .g-items-contactos{
-	padding: 0;
-	margin: 0;
+padding: 0;
+margin: 0;
+@include display(inline-flex);
+@include flex-direction(row);
 
-	.g-items-contactos-opcion {
-	 @include display(inline-flex);
-	 @include align-items(center);
-	margin: 0 1rem 0 0;
+	/*Orientación Items*/	
+	&.g-item-dis-horizontal{
+		.g-items-contactos-opcion{
+		margin-right:1rem;
+			&:last-child {
+			margin-right: 0 !important;
+			}
+		}
+		
 	}
-	 .g-items-contactos-opcion:last-child {
-	margin-right: 0;
+	&.g-item-dis-vertical{
+	flex-direction: column;
+		.g-items-contactos-opcion{
+		margin-bottom:1rem;
+			&:last-child {
+			margin-bottom:0 !important;
+			}
+		}
+		
 	}
+	
+	/*Alineación horizontal*/
+	&.g-item-cont-izq .g-items-contactos-opcion{
+	text-align: left;
+	}
+	&.g-item-cont-cen .g-items-contactos-opcion{
+	text-align: center;
+	}
+	&.g-item-cont-der .g-items-contactos-opcion{
+	text-align: right;
+	}	
 
-	.g-items-contactos-opcion a{
-	 @include display(flex);
+	.g-items-contactos-opcion,
+	.g-items-contactos-opcion a {
+	list-style: none;
+	@include display(flex);
 	@include align-items(center);
+	text-decoration: none;
 	}
 
-	.g-items-contactos-opcion .g-items-contactos-icono {
+	/*Alineación del ícono*/
+	&.g-item-ico-arri .g-items-contactos-opcion,
+	&.g-item-ico-arri .g-items-contactos-opcion a,
+	&.g-item-ico-abaj .g-items-contactos-opcion,
+	&.g-item-ico-abaj .g-items-contactos-opcion a
+	 {
+    @include flex-direction(column);
+	}
+	&.g-item-ico-abaj .g-items-contactos-opcion .g-items-contactos-icono {
+    order: 1;
+    @include order(1);
+	}
+
+	/*Espaciado del ícono*/
+	&.g-item-ico-arri .g-items-contactos-opcion .g-items-contactos-icono {
+	margin-bottom: .4rem;
+	}
+	&.g-item-ico-izqu .g-items-contactos-opcion .g-items-contactos-icono {
 	margin-right: .4rem;
 	}
-
-	/*Items Contactos en Vertical*/
-	&.contactos-en-bloques .g-items-contactos-opcion {
-		 @include display(flex);
-		 margin: 0 0 .2rem;
+	&.g-item-ico-abaj .g-items-contactos-opcion .g-items-contactos-icono {
+	margin-top: .4rem;
 	}
+	
+	.g-items-contactos-opcion .g-items-contactos-valor p{
+	margin: 0;
+	}
+	.g-items-contactos-opcion .g-items-contactos-valor strong {
+	color: inherit;
+	}
+
 }
 
 /*-------------------------------------------
@@ -40,9 +90,9 @@ MEDIAS QUERIES
 		 @include display(flex);
 		 @include flex-direction(column);
 		
-		.g-items-contactos-opcion {
-		    margin: 0;
-		    @include justify-content(center);
+		 .g-items-contactos-opcion {
+		  margin-right: 0;
+		  margin-bottom:1rem;
 		}
 	}
 }/*Fin Media Queries*/

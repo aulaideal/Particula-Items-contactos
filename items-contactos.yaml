@@ -3,10 +3,6 @@ description: Muestra diferentes items de contacto (Ícono +  Texto).
 type: particle
 icon: fa fa-check-square-o
 
-configuration:
-  caching:
-    type: static
-
 form:
   fields:
     enabled:
@@ -15,26 +11,78 @@ form:
       description: Habilitar esta partícula.
       default: true
 
-    css.class:
-      type: input.selectize
-      label: Clases CSS
-      description: Clases CSS para esta partícula.
-      default:
+    separador00:
+      type: separator.note
+      class: alert alert-info
+      content: '<h4>Ajustes Generales</h4>'
 
-    display:
-      type: input.radios
-      label: Orientación
-      description: ¿Cómo deseas mostrar los items?
-      default: horizontal
+    titulo:
+      type: input.text
+      label: Título
+      description: 'Título de la partícula'
+
+    etiquetatitulo:
+      type: select.select
+      label: Etiqueta del título
+      description: Define la etiqueta HTML que envolverá el título.
+      placeholder: 'h3'
+      default: h3
       options:
-        horizontal: Horizontal
-        vertical: Vertical
+        h1: h1
+        h2: h2
+        h3: h3
+        h4: h4
+        h5: h5
+        h6: h6
 
+    clasecsstitulo:
+      type: input.text
+      label: Clase CSS del título
+      description: 'La clase CSS para el título de la partícula'
+    
     pretexto:
       type: textarea.textarea
       label: Texto previo
       description: texto a mostrar antes de la lista. 
 
+    orientacionitems:
+      type: input.radios
+      label: Orientación Items
+      description: ¿Cómo deseas mostrar los items?
+      default: g-item-dis-horizontal
+      options:
+        g-item-dis-horizontal: Horizontal
+        g-item-dis-vertical: Vertical
+
+    alineacion:
+      type: input.radios
+      label: Alineación horizontal
+      description: Alineación horizontal de los Items
+      default: g-item-cont-izq
+      options:
+        g-item-cont-izq: Izquierda
+        g-item-cont-cen: Centrado
+        g-item-cont-der: Derecha
+
+    separacionitems:
+      type: input.text
+      label: Separación entre items
+      description: 'Tamaño del ícono que acompaña al texto'
+      placeholder: '1rem'
+
+    clasecssgeneral:
+      type: input.selectize
+      label: Clases CSS
+      description: Clases CSS para esta partícula.
+      default:
+    
+    extrageneral:
+      type: collection.keyvalue
+      label: Atributos adicionales
+      description: Ingrese atributos adicionales a la etiqueta.
+      key_placeholder: Key (data-*, style, ...)
+      value_placeholder: Value
+      exclude: ['id', 'class']
 
     separador01:
       type: separator.note
@@ -47,11 +95,26 @@ form:
       description: 'Tamaño del ícono que acompaña al texto'
       placeholder: '1rem'
     
-
     coloricono:
       type: input.colorpicker
       label: Color del Ícono
       placeholder: 'Color del Ícono'
+
+    alineacionicono:
+      type: input.radios
+      label: Posición del ícono
+      description: Alineación del ícono con respecto al texto.
+      default: g-item-ico-izqu
+      options:
+        g-item-ico-arri: Arriba
+        g-item-ico-izqu: Izquierda
+        g-item-ico-abaj: Abajo
+
+    espaciadoicono:
+      type: input.text
+      label: Separación del ícono
+      description: 'Distancia del ícono con respecto al texcto.'
+      placeholder: '0.5rem'
 
     separador02:
       type: separator.note
@@ -85,23 +148,19 @@ form:
 
       fields:
 
-        .icon:
+        icon:
           type: input.icon
           label: Icono
 
-        .line1:
-          type: input.text
-          label: Línea 1
+        texto:
+          type: textarea.textarea
+          label: Texto
 
-        .line2:
-          type: input.text
-          label: Línea 2
-
-        .link:
+        link:
           type: input.text
           label: Enlace
 
-        .target:
+        target:
           type: select.select
           label: Target
           description: Define si el enlace se abrirá en una nueva ventana. 
@@ -111,7 +170,7 @@ form:
             _parent: Misma ventana
             _blank: Nueva ventana
 
-        .class:
+        class:
           type: input.selectize
           label: Clases CSS
           description: Clases CSS el item.
