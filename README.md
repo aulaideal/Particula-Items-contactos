@@ -1,5 +1,7 @@
 # Partícula "Items-contactos"
 Partícula para Gantry 5 que te permite incluir un ícono de Font Awesome acompañado de un texto (pudiendo ser el texto ser también un enlace), muy util para secciones donde necesitemos insertar teléfonos,emails,direccións, etc.
+![particula-items-contactos](https://user-images.githubusercontent.com/9434043/26898765-a76f6882-4b92-11e7-8d72-4f4566ebb6cb.png)
+
 
 Instalación
 -----------
@@ -10,8 +12,9 @@ El modo de instalación es muy sencillo:
 + Cópie los archivos imagen.html.twig y imagen.yaml
 + Cópie el archivo _contact-items.scss dentro de tu carpeta "scss". Ejem: g5_hydrogen/custom/scss
 + Llame al archivo desde tu custom.scss colocando la siguiente linea al comienzo: 
-  /*Estilos partícula Contact Items */
-  @import "contact-items";
+
+  /*Estilos partícula "items-contactos */
+  @import "items-contactos";
 
 
 Modo de uso
