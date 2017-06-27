@@ -36,13 +36,16 @@
                     {%- if particle.tamanoicono or particle.coloricono or particle.espaciadoicono -%} style="
                         {%- if particle.tamanoicono -%} font-size:{{particle.tamanoicono}};{%- endif -%}
                         {%- if particle.coloricono -%} color:{{particle.coloricono}};{%- endif -%}
-                        {%- if particle.alineacionicono=='g-item-ico-arri' -%}
-                         margin-bottom:{{particle.espaciadoicono}};
-                         {%- elseif particle.alineacionicono=='g-item-ico-izqu' -%}
-                         margin-right:{{particle.espaciadoicono}};
-                         {%- elseif particle.alineacionicono=='g-item-ico-abaj' -%}
-                         margin-top:{{particle.espaciadoicono}};
+                        {%- if particle.espaciadoicono -%}
+                            {%- if particle.alineacionicono=='g-item-ico-arri' -%}
+                             margin-bottom:{{particle.espaciadoicono}};
+                             {%- elseif particle.alineacionicono=='g-item-ico-izqu' -%}
+                             margin-right:{{particle.espaciadoicono}};
+                             {%- elseif particle.alineacionicono=='g-item-ico-abaj' -%}
+                             margin-top:{{particle.espaciadoicono}};
+                            {%- endif -%}
                         {%- endif -%}
+
                     "{%- endif -%}></i>
                 {% endif %}
 				{% if item.texto  %}
