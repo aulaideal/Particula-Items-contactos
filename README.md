@@ -10,8 +10,8 @@ No hemos incluido un instalador ya que deseamos que esta partícula pueda ser us
 El modo de instalación es muy sencillo:
 
 + Crear la carpeta "particles" dentro de tu carpeta "custom" en tu plantilla Gantry. Ejem: g5_hydrogen/custom/particles
-+ Cópie los archivos imagen.html.twig y imagen.yaml
-+ Cópie el archivo _contact-items.scss dentro de tu carpeta "scss". Ejem: g5_hydrogen/custom/scss
++ Cópie los archivos items-contactos.html.twig y items-contactos.yaml
++ Cópie el archivo _items-contactos.scss dentro de tu carpeta "scss". Ejem: g5_hydrogen/custom/scss
 + Llame al archivo desde tu custom.scss colocando la siguiente linea al comienzo: 
 
   /*Estilos partícula "items-contactos */
@@ -21,7 +21,7 @@ El modo de instalación es muy sencillo:
 
 Modo de uso
 -----------
-+ Desde el Layout Manager encontrarás la partícula con el nombre "Contact Items". 
++ Desde el Layout Manager encontrarás la partícula con el nombre "ItemsContactos". 
 + Arrástrala a tu  diseño y configúrala.
 
 Saludos
